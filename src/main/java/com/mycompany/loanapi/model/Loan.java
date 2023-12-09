@@ -1,4 +1,4 @@
-package com.example.loanapi.model;
+package com.mycompany.loanapi.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

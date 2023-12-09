@@ -1,7 +1,7 @@
-package com.example.loanapi.service;
+package com.mycompany.loanapi.service;
 
-import com.example.loanapi.model.Loan;
-import com.example.loanapi.repository.LoanRepository;
+import com.mycompany.loanapi.model.Loan;
+import com.mycompany.loanapi.repository.LoanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.example.loanapi;
+package com.mycompany.loanapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

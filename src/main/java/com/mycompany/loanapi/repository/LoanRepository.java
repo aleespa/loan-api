@@ -1,6 +1,6 @@
-package com.example.loanapi.repository;
+package com.mycompany.loanapi.repository;
 
-import com.example.loanapi.model.Loan;
+import com.mycompany.loanapi.model.Loan;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
