@@ -1,7 +1,7 @@
-package com.example.accountmanager.service;
+package com.example.loanapi.service;
 
-import com.example.accountmanager.model.Loan;
-import com.example.accountmanager.repository.LoanRepository;
+import com.example.loanapi.model.Loan;
+import com.example.loanapi.repository.LoanRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

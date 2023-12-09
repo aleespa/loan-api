@@ -1,7 +1,7 @@
-package com.example.accountmanager.service;
+package com.example.loanapi.service;
 
-import com.example.accountmanager.model.Loan;
-import com.example.accountmanager.repository.LoanRepository;
+import com.example.loanapi.model.Loan;
+import com.example.loanapi.repository.LoanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
