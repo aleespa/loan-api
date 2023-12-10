@@ -8,6 +8,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.time.LocalDate;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -27,7 +29,11 @@ class LoanServiceTest {
     }
     @Test
     void saveLoan() {
-        Loan loan = new Loan(1L, 100_000);
+        Loan loan =Loan.builder()
+                .id(1L)
+                .startDate(LocalDate.now())
+                .amount(100_000)
+                .build();
         when(loanRepository.save(any(Loan.class))).thenReturn(loan);
 
         Loan savedLoan = loanService.saveLoan(loan);

@@ -1,9 +1,11 @@
 package com.mycompany.loanapi.model;
 
+import java.time.LocalDate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +13,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Builder
 public class Loan {
 
     @Id
@@ -19,15 +22,9 @@ public class Loan {
 
     private int amount;
 
-    public Loan() {
-    }
+    private LocalDate startDate;
 
-    // Constructor with parameters
-    public Loan(Long id, int amount) {
-        this.id = id;
-        this.amount = amount;
-    }
-
+    private LocalDate finalDate;
 
 
 }
