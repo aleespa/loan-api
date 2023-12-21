@@ -22,5 +22,4 @@ public class SwaggerConfig {
                 .build();
     }
 
-    // Additional API groups as needed
 }
