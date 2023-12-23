@@ -1,6 +1,8 @@
 package com.mycompany.portfoliomanager.model;
 
 import java.time.LocalDate;
+
+import com.mycompany.portfoliomanager.model.interest.Interest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,6 +27,8 @@ public class Loan {
     private LocalDate startDate;
 
     private LocalDate finalDate;
+
+    private Interest interest;
 
 
 }
