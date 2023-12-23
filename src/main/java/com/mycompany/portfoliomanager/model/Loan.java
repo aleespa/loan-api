@@ -22,7 +22,7 @@ public class Loan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int amount;
+    private int principal;
 
     private LocalDate startDate;
 
