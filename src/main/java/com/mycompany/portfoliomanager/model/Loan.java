@@ -1,4 +1,4 @@
-package com.mycompany.loanapi.model;
+package com.mycompany.portfoliomanager.model;
 
 import java.time.LocalDate;
 import jakarta.persistence.Entity;

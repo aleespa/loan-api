@@ -1,4 +1,4 @@
-package com.mycompany.loanapi.config;
+package com.mycompany.portfoliomanager.config;
 import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +10,7 @@ public class SwaggerConfig {
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
                 .group("public")
-                .packagesToScan("com.mycompany.loanapi.controller")
+                .packagesToScan("com.mycompany.porfoliomanager.controller")
                 .build();
     }
 
@@ -18,7 +18,7 @@ public class SwaggerConfig {
     public GroupedOpenApi adminApi() {
         return GroupedOpenApi.builder()
                 .group("admin")
-                .packagesToScan("com.mycompany.loanapi.controller")
+                .packagesToScan("com.mycompany.porfoliomanager.controller")
                 .build();
     }
 

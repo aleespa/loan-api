@@ -1,4 +1,4 @@
-package com.mycompany.loanapi;
+package com.mycompany.portfoliomanager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

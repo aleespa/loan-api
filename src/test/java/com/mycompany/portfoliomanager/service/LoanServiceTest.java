@@ -1,7 +1,7 @@
-package com.mycompany.loanapi.service;
+package com.mycompany.portfoliomanager.service;
 
-import com.mycompany.loanapi.model.Loan;
-import com.mycompany.loanapi.repository.LoanRepository;
+import com.mycompany.portfoliomanager.model.Loan;
+import com.mycompany.portfoliomanager.repository.LoanRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

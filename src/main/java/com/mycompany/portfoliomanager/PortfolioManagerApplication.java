@@ -1,13 +1,13 @@
-package com.mycompany.loanapi;
+package com.mycompany.portfoliomanager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LoanAPIApplication {
+public class PortfolioManagerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LoanAPIApplication.class, args);
+		SpringApplication.run(PortfolioManagerApplication.class, args);
 	}
 
 }

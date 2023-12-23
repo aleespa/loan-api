@@ -1,7 +1,7 @@
-package com.mycompany.loanapi.controller;
-import com.mycompany.loanapi.service.LoanService;
+package com.mycompany.portfoliomanager.controller;
+import com.mycompany.portfoliomanager.service.LoanService;
 
-import com.mycompany.loanapi.model.Loan;
+import com.mycompany.portfoliomanager.model.Loan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
