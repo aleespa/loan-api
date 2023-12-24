@@ -17,22 +17,46 @@ public class ExcelExporter {
             // Create header row
             Row headerRow = sheet.createRow(0);
             headerRow.createCell(0).setCellValue("Payment Number");
-            headerRow.createCell(1).setCellValue("Principal");
-            headerRow.createCell(2).setCellValue("Interest");
-            headerRow.createCell(3).setCellValue("Remaining Balance");
+            headerRow.createCell(1).setCellValue("Payment Date");
+            headerRow.createCell(2).setCellValue("Principal");
+            headerRow.createCell(3).setCellValue("Interest");
+            headerRow.createCell(4).setCellValue("Remaining Balance");
+
+            CreationHelper createHelper = workbook.getCreationHelper();
+            CellStyle dateStyle = workbook.createCellStyle();
+            dateStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd/mm/yyyy"));
+
+
+            CellStyle style = workbook.createCellStyle();
+            DataFormat format = workbook.createDataFormat();
+            style.setDataFormat(format.getFormat("#,##0.00"));
 
             // Populate data rows
             int rowNum = 1;
             for (AmortizationRow row : amortizationRows) {
                 Row excelRow = sheet.createRow(rowNum++);
                 excelRow.createCell(0).setCellValue(row.getPaymentNumber());
-                excelRow.createCell(1).setCellValue(row.getPrincipal());
-                excelRow.createCell(2).setCellValue(row.getInterest());
-                excelRow.createCell(3).setCellValue(row.getRemainingBalance());
-            }
 
+                Cell dateCell = excelRow.createCell(1);
+                dateCell.setCellValue(row.getPaymentDate());
+                dateCell.setCellStyle(dateStyle);
+
+                Cell principalCell = excelRow.createCell(2);
+                principalCell.setCellValue(row.getPrincipal());
+                principalCell.setCellStyle(style);
+
+                Cell interestCell = excelRow.createCell(3);
+                interestCell.setCellValue(row.getInterest());
+                interestCell.setCellStyle(style);
+
+                Cell balanceCell = excelRow.createCell(4);
+                balanceCell.setCellValue(row.getRemainingBalance());
+                balanceCell.setCellStyle(style);
+
+
+            }
             // Resize columns to fit content
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 5; i++) {
                 sheet.autoSizeColumn(i);
             }
 

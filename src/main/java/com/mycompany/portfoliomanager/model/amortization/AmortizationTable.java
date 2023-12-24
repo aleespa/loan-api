@@ -5,6 +5,7 @@ import com.mycompany.portfoliomanager.model.interest.Interest;
 import jakarta.persistence.Entity;
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,15 +22,36 @@ public class AmortizationTable {
         // Logic to calculate amortization based on loan details
         // This is a simplified version. You would need to include logic for different interest rates, payment frequencies, etc.
         double balance = loan.getPrincipal();
-        int totalPayments = 12;
+        int numberPayments = calculateNumberPayments(loan);
+        double paymentAmount = calculatePaymentAmount(loan);
         Interest interest = loan.getInterest();
+        LocalDate paymentDate = loan.getStartDate();
 
-        for (int i = 0; i < totalPayments; i++) {
+        for (int i = 0; i < numberPayments; i++) {
             double principal = balance;
-            balance -= principal;
-
-            AmortizationRow row = new AmortizationRow(i + 1, principal, 10, 100);
+            double interestPaid = principal * calculateInterestFactor(loan) - principal;
+            balance -= paymentAmount;
+            AmortizationRow row = new AmortizationRow(i + 1, paymentDate, principal, interestPaid, balance);
             rows.add(row);
+            paymentDate = paymentDate.plusDays(loan.getFrequency().getNumberDays());
         }
+    }
+    private int calculateNumberPayments(Loan loan){
+        if( loan.getTerm() != null){
+            return loan.getTerm();
+        } else{
+            return 0;
+        }
+    }
+    private double calculatePaymentAmount(Loan loan){
+        int numberPayments = calculateNumberPayments(loan);
+        return loan.getPrincipal() / numberPayments;
+    }
+
+    private double calculateInterestFactor(Loan loan){
+        Interest interest = loan.getInterest();
+        return Math.pow(
+                1 + interest.getRate() / interest.getFrequency().getNumberDays(),
+                loan.getFrequency().getNumberDays());
     }
 }

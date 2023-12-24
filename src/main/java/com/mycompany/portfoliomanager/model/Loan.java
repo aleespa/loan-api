@@ -1,7 +1,9 @@
 package com.mycompany.portfoliomanager.model;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
+import com.mycompany.portfoliomanager.model.interest.Frequency;
 import com.mycompany.portfoliomanager.model.interest.Interest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,13 +24,17 @@ public class Loan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int principal;
+    private Double principal;
 
     private LocalDate startDate;
 
-    private LocalDate finalDate;
+    private Integer term;
 
     private Interest interest;
+
+    private Frequency frequency;
+
+    private Boolean fixed_payments;
 
 
 }

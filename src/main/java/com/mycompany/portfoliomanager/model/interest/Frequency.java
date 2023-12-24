@@ -1,19 +1,22 @@
 package com.mycompany.portfoliomanager.model.interest;
 
+import lombok.Getter;
+
+@Getter
 public enum Frequency {
-    Annual(365),
-    Semi_annual(180),
-    Quarterly(90),
-    Monthly(30),
-    Bi_weekly(15),
-    Weekly(7),
-    Daily(1),
-    Continuous(0);
+    Annual(365L),
+    Semi_annual(180L),
+    Quarterly(90L),
+    Monthly(30L),
+    Bi_weekly(15L),
+    Weekly(7L),
+    Daily(1L),
+    Continuous(0L);
 
-    private final double number_days;
+    private final Long numberDays;
 
-    Frequency(double number_days) {
-        this.number_days = number_days;
+    Frequency(Long numberDays) {
+        this.numberDays = numberDays;
     }
 
 }

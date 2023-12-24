@@ -17,5 +17,6 @@ public class Interest {
     private Long id;
 
     private double rate;
+
     private Frequency frequency;
 }
