@@ -37,7 +37,7 @@ class ExcelServiceTest {
             // Assertions
             assertNotNull(loans);
 
-            assertEquals(loans.size(), 13);
+            assertEquals(loans.size(), 14);
 
             assertEquals(loans.get(0).getId(), 1);
             assertEquals(loans.get(0).getPrincipal(), 10000);
