@@ -1,4 +1,5 @@
 package com.mycompany.portfoliomanager.controller;
+import com.mycompany.portfoliomanager.repository.LoanRepository;
 import com.mycompany.portfoliomanager.service.ExcelService;
 import com.mycompany.portfoliomanager.service.LoanService;
 
@@ -7,13 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.http.HttpHeaders;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/loans")
 public class LoanController {
     private final LoanService loanService;
+
+    @Autowired
+    private LoanRepository loanRepository;
 
     @Autowired
     public LoanController(LoanService loanService) {
@@ -44,5 +50,18 @@ public class LoanController {
         List<Loan> savedLoans = loanService.saveLoans(loans);
 
         return ResponseEntity.ok(savedLoans);
+    }
+    @GetMapping("/export")
+    public ResponseEntity<byte[]> exportLoansToExcel() throws IOException {
+        List<Loan> loans = loanRepository.findAll();
+
+        byte[] excelFileContent = excelService.exportLoansToExcelWorkbook(loans);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "attachment; filename=loans.xlsx");
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(excelFileContent);
     }
 }

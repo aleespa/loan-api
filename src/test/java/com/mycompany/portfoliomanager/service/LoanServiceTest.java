@@ -7,6 +7,7 @@ import com.mycompany.portfoliomanager.model.excel.ExcelExporter;
 import com.mycompany.portfoliomanager.model.interest.Frequency;
 import com.mycompany.portfoliomanager.model.interest.Interest;
 import com.mycompany.portfoliomanager.repository.LoanRepository;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
