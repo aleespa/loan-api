@@ -19,4 +19,13 @@ public enum Frequency {
         this.numberDays = numberDays;
     }
 
+    public static Frequency fromString(String text) {
+        for (Frequency b : Frequency.values()) {
+            if (b.name().equalsIgnoreCase(text)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("No constant with text " + text + " found");
+    }
+
 }

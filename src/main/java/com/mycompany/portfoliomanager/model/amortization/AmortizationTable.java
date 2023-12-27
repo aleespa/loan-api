@@ -2,7 +2,6 @@ package com.mycompany.portfoliomanager.model.amortization;
 
 import com.mycompany.portfoliomanager.model.Loan;
 import com.mycompany.portfoliomanager.model.interest.Interest;
-import jakarta.persistence.Entity;
 import lombok.Getter;
 
 import java.time.LocalDate;
@@ -33,7 +32,7 @@ public class AmortizationTable {
             balance -= paymentAmount;
             AmortizationRow row = new AmortizationRow(i + 1, paymentDate, principal, interestPaid, balance);
             rows.add(row);
-            paymentDate = paymentDate.plusDays(loan.getFrequency().getNumberDays());
+            paymentDate = paymentDate.plusDays(loan.getPayment_frequency().getNumberDays());
         }
     }
     private int calculateNumberPayments(Loan loan){
@@ -52,6 +51,6 @@ public class AmortizationTable {
         Interest interest = loan.getInterest();
         return Math.pow(
                 1 + interest.getRate() / interest.getFrequency().getNumberDays(),
-                loan.getFrequency().getNumberDays());
+                loan.getPayment_frequency().getNumberDays());
     }
 }

@@ -1,7 +1,6 @@
 package com.mycompany.portfoliomanager.model;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 import com.mycompany.portfoliomanager.model.interest.Frequency;
 import com.mycompany.portfoliomanager.model.interest.Interest;
@@ -9,15 +8,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 
-@Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
+@Entity
 public class Loan {
 
     @Id
@@ -32,9 +31,8 @@ public class Loan {
 
     private Interest interest;
 
-    private Frequency frequency;
+    private Frequency payment_frequency;
 
     private Boolean fixed_payments;
-
 
 }

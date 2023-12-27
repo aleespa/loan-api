@@ -7,8 +7,6 @@ import com.mycompany.portfoliomanager.model.excel.ExcelExporter;
 import com.mycompany.portfoliomanager.model.interest.Frequency;
 import com.mycompany.portfoliomanager.model.interest.Interest;
 import com.mycompany.portfoliomanager.repository.LoanRepository;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jdk.jfr.Period;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -64,7 +62,7 @@ class LoanServiceTest {
                 .principal(100_000.0)
                 .interest(interest)
                 .term(70)
-                .frequency(Frequency.Monthly)
+                .payment_frequency(Frequency.Monthly)
                 .build();
         Mockito.when(loanRepository.save(Mockito.any(Loan.class))).thenReturn(loan);
 
