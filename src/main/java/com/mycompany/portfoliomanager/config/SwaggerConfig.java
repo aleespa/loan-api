@@ -10,7 +10,7 @@ public class SwaggerConfig {
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
                 .group("public")
-                .packagesToScan("com.mycompany.porfoliomanager.controller")
+                .packagesToScan("com.mycompany.portfoliomanager.controller")
                 .build();
     }
 
@@ -18,7 +18,7 @@ public class SwaggerConfig {
     public GroupedOpenApi adminApi() {
         return GroupedOpenApi.builder()
                 .group("admin")
-                .packagesToScan("com.mycompany.porfoliomanager.controller")
+                .packagesToScan("com.mycompany.portfoliomanager.controller")
                 .build();
     }
 
